@@ -28,8 +28,6 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
 
 <style>
   :root{
-    --bg-dark:#000000;
-    --bg-dark2:#000000;
     --bg-card:#0b0b0b;
     --amber:#f5a623;
     --amber-light:#ffc94d;
@@ -37,6 +35,9 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
     --cream-dim:#d9c9a8;
     --pink:#e0245e;
     --green:#4caf7d;
+    --pp-blue:#003087;
+    --pp-lightblue:#009cde;
+    --pp-gold:#ffc439;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -47,7 +48,6 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
     overflow-x:hidden;
   }
   h1,h2,h3{font-family:'Anton',sans-serif;letter-spacing:.5px;line-height:1.1}
-  .script{font-family:'Caveat',cursive}
   .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
   /* ===== BARRA SUPERIOR URGENCIA ===== */
@@ -95,16 +95,6 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
       radial-gradient(ellipse at 80% 90%,rgba(224,36,94,.06),transparent 50%),
       #000;
     overflow:hidden;
-  }
-  .hero::before{
-    content:"🍺 🍯 🍺 🍯";
-    position:absolute;
-    font-size:6rem;
-    opacity:.04;
-    top:10%;
-    left:-5%;
-    transform:rotate(-10deg);
-    white-space:nowrap;
   }
   .badge-limited{
     display:inline-block;
@@ -213,6 +203,14 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
     box-shadow:0 10px 35px rgba(224,36,94,.4);
   }
   .btn-pink:hover{transform:translateY(-3px)}
+  .btn-paypal{
+    background:var(--pp-gold);
+    color:var(--pp-blue);
+    box-shadow:0 10px 35px rgba(255,196,57,.35);
+    font-size:1.15rem;
+    padding:20px 50px;
+  }
+  .btn-paypal:hover{transform:translateY(-3px);box-shadow:0 15px 45px rgba(255,196,57,.55)}
 
   /* ===== SECCIONES ===== */
   section{padding:80px 0;background:#000}
@@ -313,6 +311,64 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
   .stock-txt{font-size:.85rem;color:#ff8fb0;font-weight:600}
 
   /* ===== PAGOS ===== */
+  .paypal-card{
+    background:linear-gradient(160deg,var(--pp-blue),#001740);
+    border:2px solid var(--pp-lightblue);
+    border-radius:18px;
+    padding:40px 28px;
+    text-align:center;
+    max-width:850px;
+    margin:0 auto 30px;
+    position:relative;
+    box-shadow:0 0 50px rgba(0,112,186,.25);
+    transition:all .3s;
+  }
+  .paypal-card:hover{box-shadow:0 0 70px rgba(0,156,222,.4)}
+  .paypal-card .pp-ribbon{
+    position:absolute;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--pp-gold);
+    color:var(--pp-blue);
+    padding:6px 22px;
+    border-radius:50px;
+    font-size:.75rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    white-space:nowrap;
+  }
+  .paypal-card .p-icon{font-size:2.6rem;display:block;margin-bottom:10px}
+  .paypal-card h3{font-size:1.4rem;color:#fff;text-transform:uppercase;margin-bottom:6px}
+  .paypal-card .p-bank{font-size:.85rem;color:#9fc9e8;margin-bottom:18px}
+  .paypal-price{
+    background:rgba(0,0,0,.35);
+    border:1px dashed var(--pp-lightblue);
+    border-radius:12px;
+    padding:14px;
+    margin-bottom:22px;
+    font-size:1.1rem;
+    color:#cfe9ff;
+  }
+  .paypal-price strong{
+    font-family:'Anton',sans-serif;
+    font-size:1.8rem;
+    color:var(--pp-gold);
+    letter-spacing:1px;
+  }
+  .paypal-note{font-size:.8rem;color:#9fc9e8;margin-top:16px;line-height:1.6}
+  .pp-badges{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:18px;
+    font-size:.75rem;
+    color:#cfe9ff;
+    font-weight:600;
+  }
+
   .pay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;max-width:850px;margin:0 auto 40px}
   .pay-card{
     background:var(--bg-card);
@@ -386,7 +442,17 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
   }
   .step h4{font-size:1.05rem;margin-bottom:4px;color:var(--cream)}
   .step p{font-size:.88rem;color:var(--cream-dim)}
-  .step p b{color:var(--amber-light)}
+  .paypal-ok{
+    background:rgba(0,48,135,.25);
+    border:1px solid rgba(0,156,222,.4);
+    border-radius:16px;
+    padding:20px 25px;
+    text-align:center;
+    font-size:.88rem;
+    color:#cfe9ff;
+    margin-top:10px;
+  }
+  .paypal-ok b{color:var(--pp-gold)}
 
   /* ===== TESTIMONIOS ===== */
   .testis{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;max-width:950px;margin:0 auto}
@@ -472,6 +538,7 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
     .sticky-cta{display:block}
     body{padding-bottom:60px}
     section{padding:60px 0}
+    .btn-paypal{padding:18px 30px;font-size:1rem}
   }
 </style>
 </head>
@@ -507,7 +574,7 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
   </div>
   <br>
   <a href="#pagar" class="btn btn-primary" onclick="fbq('track','AddToCart')">🚀 Quiero mi paquete ahora</a>
-  <p style="margin-top:18px;font-size:.85rem;color:var(--cream-dim)">🔒 Pago seguro · 📲 Entrega inmediata por WhatsApp</p>
+  <p style="margin-top:18px;font-size:.85rem;color:var(--cream-dim)">🔒 Pago seguro con PayPal o transferencia · 📲 Entrega inmediata por WhatsApp</p>
 </header>
 
 <!-- BENEFICIOS -->
@@ -526,7 +593,7 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
 </section>
 
 <!-- LO QUE RECIBES -->
-<section style="background:#000">
+<section>
   <div class="container">
     <h2 class="sec-title reveal">Esto es <span class="gold">lo que recibes</span></h2>
     <p class="sec-sub reveal">Dos recetarios completos en formato PDF digital, listos para leer desde tu celular, tablet o computadora.</p>
@@ -583,7 +650,7 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
 </section>
 
 <!-- TESTIMONIOS -->
-<section style="background:#000">
+<section>
   <div class="container">
     <h2 class="sec-title reveal">Ellos ya están <span class="gold">elaborando</span></h2>
     <p class="sec-sub reveal">Cerveceros y hidromeleros que comenzaron desde cero con este paquete.</p>
@@ -611,7 +678,27 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
 <section id="pagar">
   <div class="container">
     <h2 class="sec-title reveal">Realiza tu pago <span class="gold">en 1 minuto</span></h2>
-    <p class="sec-sub reveal">Elige el método de tu preferencia. Toca el botón para copiar los datos sin errores.</p>
+    <p class="sec-sub reveal">Elige el método de tu preferencia. Con PayPal el proceso es 100% seguro y más rápido.</p>
+
+    <!-- ⭐ PAYPAL (OPCIÓN RECOMENDADA) -->
+    <div class="paypal-card reveal">
+      <span class="pp-ribbon">⭐ Recomendado · Entrega más rápida</span>
+      <span class="p-icon">🅿️</span>
+      <h3>Pagar con PayPal</h3>
+      <p class="p-bank">Tarjeta de crédito/débito, saldo PayPal o transferencia · Compra protegida</p>
+      <div class="paypal-price">Total a pagar: <strong>$129.00 MXN</strong></div>
+      <a href="https://www.paypal.com/ncp/payment/DV5U2LKLAMULE" target="_blank" rel="noopener" class="btn btn-paypal" onclick="fbq('track','InitiateCheckout',{value:129,currency:'MXN',content_name:'PayPal'})">
+        💳 Pagar ahora con PayPal
+      </a>
+      <div class="pp-badges">
+        <span>🔒 Pago 100% seguro</span>
+        <span>⚡ Recibes hoy mismo</span>
+        <span>🛡️ Compra protegida</span>
+      </div>
+      <p class="paypal-note">Al completar tu pago serás redirigido de vuelta. Envía tu comprobante de PayPal por WhatsApp (junto con tu correo y nombre) y recibe los dos recetarios en minutos.</p>
+    </div>
+
+    <h3 class="reveal" style="text-align:center;font-size:1.1rem;text-transform:uppercase;color:var(--cream-dim);margin-bottom:25px;font-family:'Poppins',sans-serif;font-weight:600">— ¿Prefieres transferencia? También puedes pagar con: —</h3>
 
     <div class="pay-grid">
       <div class="pay-card reveal">
@@ -637,18 +724,21 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
       <h3 style="text-align:center;font-size:1.5rem;text-transform:uppercase;margin-bottom:30px" class="reveal">📩 <span style="color:var(--amber)">Después de pagar:</span> 3 pasos simples</h3>
       <div class="step reveal">
         <div class="num">1</div>
-        <div><h4>📸 Envía tu comprobante de pago</h4><p>Captura o foto del recibo donde se aprecie el monto y la fecha.</p></div>
+        <div><h4>📸 Envía tu comprobante de pago</h4><p>Captura o foto del recibo (PayPal, depósito o transferencia) donde se aprecie el monto y la fecha.</p></div>
       </div>
       <div class="step reveal">
         <div class="num">2</div>
-        <div><h4>📧 Comparte tu correo electrónico</h4><p>Para enviarte el paquete digital y dejarte registrada tu compra.</p></div>
+        <div><h4>📧 Comparte tu correo electrónico</h4><p>Para enviarte el paquete digital y registrarte como comprador.</p></div>
       </div>
       <div class="step reveal">
         <div class="num">3</div>
         <div><h4>👤 Escribe tu nombre completo</h4><p>Para confirmar tu acceso y darte soporte personalizado.</p></div>
       </div>
+      <div class="paypal-ok reveal">
+        🅿️ <b>¿Pagaste con PayPal?</b> El comprobante llega automático a tu correo — solo mándanos la captura, tu email y tu nombre por WhatsApp y listo.
+      </div>
       <div class="reveal" style="text-align:center;margin-top:35px">
-        <a href="https://wa.me/524921344124?text=Hola!%20Ya%20realic%C3%A9%20mi%20pago%20de%20%24129%20por%20el%20Paquete%20de%20Recetarios%20de%20Hidromiel%20y%20Cerveza%20Artesanal.%20Adjunto%20mi%20comprobante%20%F0%9F%93%B8%2C%20mi%20correo%20%F0%9F%93%A7%20y%20mi%20nombre%20completo%20%F0%9F%91%A4" target="_blank" class="btn btn-wa" onclick="fbq('track','InitiateCheckout')">
+        <a href="https://wa.me/524921344124?text=Hola!%20Ya%20realic%C3%A9%20mi%20pago%20de%20%24129%20por%20el%20Paquete%20de%20Recetarios%20de%20Hidromiel%20y%20Cerveza%20Artesanal.%20Adjunto%20mi%20comprobante%20%F0%9F%93%B8%2C%20mi%20correo%20%F0%9F%93%A7%20y%20mi%20nombre%20completo%20%F0%9F%91%A4" target="_blank" class="btn btn-wa" onclick="fbq('track','Purchase',{value:129,currency:'MXN'})">
           💬 Enviar mis datos por WhatsApp
         </a>
         <p style="font-size:.8rem;color:#8a7a5e;margin-top:12px">Respuesta en minutos · Entrega inmediata tras verificar tu pago</p>
@@ -658,15 +748,16 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
 </section>
 
 <!-- FAQ -->
-<section style="background:#000">
+<section>
   <div class="container">
     <h2 class="sec-title reveal">Preguntas <span class="gold">frecuentes</span></h2>
     <div class="faq">
+      <details class="reveal"><summary>¿Puedo pagar con PayPal?</summary><div class="faq-a">¡Sí! Es el método <strong>más rápido y recomendado</strong>. Acepta tarjetas de crédito/débito y saldo PayPal, con compra protegida. Al terminar tu pago, solo envía la captura del recibo por WhatsApp junto con tu correo y nombre completo, y recibirás los recetarios en minutos.</div></details>
       <details class="reveal"><summary>¿Cómo recibo los recetarios después de pagar?</summary><div class="faq-a">Una vez enviado tu comprobante por WhatsApp y verificado el pago, recibes los dos PDF directamente en tu correo y/o WhatsApp, normalmente en menos de 15 minutos.</div></details>
       <details class="reveal"><summary>¿Son libros físicos o digitales?</summary><div class="faq-a">Son recetarios digitales en formato PDF de alta calidad. Los puedes leer en celular, tablet, computadora o imprimir si lo prefieres. Esto permite ofrecerte el precio de $129.</div></details>
       <details class="reveal"><summary>¿Sirven si nunca he fermentado nada?</summary><div class="faq-a">¡Totalmente! Están diseñados para llevarte de la mano desde cero: qué comprar, cómo sanitizar, fermentar y embotellar, con lenguaje sencillo y paso a paso.</div></details>
       <details class="reveal"><summary>¿El pago de $129 es único o hay mensualidades?</summary><div class="faq-a">Es un pago único de $129 MXN. Acceso de por vida al material, sin costos ocultos ni suscripciones.</div></details>
-      <details class="reveal"><summary>¿Puedo pagar desde cualquier banco?</summary><div class="faq-a">Sí. Puedes usar la tarjeta BBVA para depósito o la CLABE para transferir desde cualquier banco de México desde tu app bancaria.</div></details>
+      <details class="reveal"><summary>¿Puedo pagar desde cualquier banco?</summary><div class="faq-a">Sí. Puedes usar PayPal, la tarjeta BBVA para depósito o la CLABE para transferir desde cualquier banco de México desde tu app bancaria.</div></details>
       <details class="reveal"><summary>¿Por qué es tan barato hoy?</summary><div class="faq-a">Es una promoción de lanzamiento por tiempo limitado. Cuando termina el contador, el precio regresa a $258 MXN.</div></details>
     </div>
   </div>
@@ -676,13 +767,13 @@ src="https://www.facebook.com/tr?id=655013039225823&ev=PageView&noscript=1"
 <div class="final-cta">
   <h2>Tu primera gran<br><span style="color:var(--amber)">hidromiel o cerveza</span> empieza hoy</h2>
   <p class="script-big">Del néctar de la naturaleza… a tu copa 🍯🍺</p>
-  <p style="color:var(--cream-dim);margin-bottom:30px">Paga ahora, envía tu comprobante y recibe todo el paquete el día de hoy mismo.</p>
+  <p style="color:var(--cream-dim);margin-bottom:30px">Paga ahora con PayPal o transferencia y recibe todo el paquete el día de hoy mismo.</p>
   <a href="#pagar" class="btn btn-primary" onclick="fbq('track','AddToCart')">🍺 Obtener el paquete por $129</a>
 </div>
 
 <footer>
   © 2025 Paquete de Recetarios · Hidromiel & Cerveza Artesanal · Todos los derechos reservados<br>
-  Producto digital · Soporte por WhatsApp
+  Producto digital · Pagos procesados por PayPal · Soporte por WhatsApp
 </footer>
 
 <!-- STICKY CTA MÓVIL -->
